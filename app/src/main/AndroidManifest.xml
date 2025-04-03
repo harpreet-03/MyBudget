@@ -13,7 +13,10 @@
         android:theme="@style/Theme.MyBudget"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".get_started"
+            android:exported="false" />
+        <activity
+            android:name=".splash_screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
