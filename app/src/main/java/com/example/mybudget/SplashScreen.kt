@@ -5,10 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
-class splash_screen : AppCompatActivity() {
+class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -17,7 +15,7 @@ class splash_screen : AppCompatActivity() {
         // creating splash screen
 
         Handler().postDelayed({
-            val intent = Intent(this, get_started::class.java)
+            val intent = Intent(this, GetStarted::class.java)
             startActivity(intent)
             finish()
         }, 2000)
