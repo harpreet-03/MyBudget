@@ -15,10 +15,9 @@
         android:src="@drawable/man"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077" />
+        app:layout_constraintVertical_bias="0.146" />
 
     <TextView
         android:layout_width="249dp"
@@ -35,6 +34,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
+        android:id="@+id/button"
         android:layout_width="255dp"
         android:layout_height="53dp"
         android:backgroundTint = "#113054"
