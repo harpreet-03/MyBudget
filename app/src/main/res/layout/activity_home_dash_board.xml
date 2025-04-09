@@ -13,11 +13,11 @@
         android:layout_height="wrap_content"
         android:text="Harpreet Singh"
         android:textColor="#f3f3e6"
-        android:textSize="25sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.122" />
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:text="Hello there 👋🏻"
         android:textColor="#F3F3e6"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.142"
@@ -37,19 +37,23 @@
         app:layout_constraintVertical_bias="0.097" />
 
     <!-- Notification Icon -->
+
+
     <ImageView
         android:id="@+id/notificationIcon"
-        android:layout_width="37dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="33dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="32dp"
         android:contentDescription="Notification Icon"
         android:src="@drawable/bell"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<!--   Card View - Displaying the History-->
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="357dp"
         android:layout_height="175dp"
         app:cardCornerRadius="12dp"
@@ -82,13 +86,13 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.124" />
 
-            <EditText
+            <TextView
                 android:id="@+id/expenseInput"
                 android:layout_width="203dp"
                 android:layout_height="76dp"
-                android:layout_marginTop="60dp"
                 android:background="@drawable/edittext_bg"
                 android:hint="₹"
+                android:text=""
                 android:inputType="numberDecimal"
                 android:maxLines="1"
                 android:padding="12dp"
@@ -96,14 +100,100 @@
                 android:textColorHint="#888888"
                 android:textSize="25sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.103"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.626"
                 app:layout_constraintWidth_percent="0.8" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+
+<!--    Transactions-->
+
+
+    <!-- Transactions Title -->
+
+    <!-- RecyclerView for listing expenses -->
+
+    <TextView
+        android:id="@+id/transactionsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Transactions"
+        android:textColor="#123051"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/transactionsRecyclerView"
+        android:layout_width="343dp"
+        android:layout_height="296dp"
+        android:clipToPadding="false"
+        android:overScrollMode="ifContentScrolls"
+        android:padding="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.439"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transactionsTitle"
+        app:layout_constraintVertical_bias="0.118" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <!-- Floating Action Button -->
+
+    <!-- Bottom Navigation Bar -->
+
+    <!-- Bottom Navigation -->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddExpense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="Add Expense"
+        android:elevation="10dp"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="#FF9800"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:tint="@android:color/white" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        android:background="@color/white"
+        app:itemHorizontalTranslationEnabled="false"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transactionsRecyclerView"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_nav_menu" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

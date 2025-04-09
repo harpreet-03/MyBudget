@@ -15,11 +15,14 @@
         android:theme="@style/Theme.MyBudget"
         tools:targetApi="31">
         <activity
-            android:name=".HomeDashBoard"
+            android:name=".AddExpense"
             android:exported="true" >
 
 
         </activity>
+        <activity
+            android:name=".HomeDashBoard"
+            android:exported="true"></activity>
         <activity
             android:name=".GetStarted"
             android:exported="false" />

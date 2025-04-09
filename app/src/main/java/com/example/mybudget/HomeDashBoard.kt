@@ -1,55 +1,50 @@
 package com.example.mybudget
 
-import ExpenseDatabaseHelper
+import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.snackbar.Snackbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class HomeDashBoard : AppCompatActivity() {
 
-    private lateinit var expenseInput: EditText
-    private lateinit var totalExpenseTextView: TextView
     private lateinit var dbHelper: ExpenseDatabaseHelper
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: ExpenseAdapter
+    private lateinit var totalExpenseTextView: TextView
+
+    override fun onResume() {
+        super.onResume()
+        loadExpenses()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_dash_board)
 
-        val notificationIcon = findViewById<ImageView>(R.id.notificationIcon)
-        notificationIcon.setOnClickListener {
-            Toast.makeText(this, "Notifications clicked", Toast.LENGTH_SHORT).show()
-        }
-
-        expenseInput = findViewById(R.id.expenseInput)
-        totalExpenseTextView = findViewById(R.id.textView2)
-
         dbHelper = ExpenseDatabaseHelper(this)
-        updateTotalExpense()
+        recyclerView = findViewById(R.id.transactionsRecyclerView)
+        totalExpenseTextView = findViewById(R.id.expenseInput)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        expenseInput.setOnEditorActionListener { _, _, _ ->
-            val input = expenseInput.text.toString().trim()
+        adapter = ExpenseAdapter()
+        recyclerView.adapter = adapter
 
-            if (input.isNotEmpty()) {
-                val expense = input.toDoubleOrNull()
-                if (expense != null) {
-                    dbHelper.insertExpense(expense)
-                    updateTotalExpense()
-                    expenseInput.text.clear()
-                    Snackbar.make(expenseInput, "Expense Added!", Snackbar.LENGTH_SHORT).show()
-                } else {
-                    Snackbar.make(expenseInput, "Invalid Input!", Snackbar.LENGTH_SHORT).show()
-                }
-            }
-            true
+        val addBtn = findViewById<FloatingActionButton>(R.id.fabAddExpense)
+        addBtn.setOnClickListener {
+            startActivity(Intent(this, AddExpense::class.java))
         }
+
+        loadExpenses()
     }
 
-    private fun updateTotalExpense() {
-        val totalExpense = dbHelper.getTotalExpense()
-        totalExpenseTextView.text = "Total Expense: ₹$totalExpense"
+    private fun loadExpenses() {
+        val expenses = dbHelper.getAllExpenses()
+        val total = dbHelper.getTotalExpense()
+        totalExpenseTextView.text = "₹$total"
+        adapter.setData(expenses)
     }
 }
