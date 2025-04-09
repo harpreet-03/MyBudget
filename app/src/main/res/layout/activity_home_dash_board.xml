@@ -8,50 +8,57 @@
     android:background="@drawable/bg"
     tools:context=".HomeDashBoard">
 
-    <TextView
-        android:id="@+id/UserName"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Harpreet Singh"
-        android:textColor="#f3f3e6"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:elevation="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello there 👋🏻"
-        android:textColor="#F3F3e6"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.097" />
+        <!-- Text Container -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-    <!-- Notification Icon -->
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="cursive"
+                android:text="Hello,"
+                android:textColor="#F3F3E6"
+                android:textSize="20sp" />
 
+            <TextView
+                android:id="@+id/UserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Harpreet Singh"
+                android:textColor="#F3F3E6"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-    <ImageView
-        android:id="@+id/notificationIcon"
-        android:layout_width="33dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="32dp"
-        android:contentDescription="Notification Icon"
-        android:src="@drawable/bell"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-<!--   Card View - Displaying the History-->
+        <!-- Notification Icon with Ripple -->
+        <ImageView
+            android:id="@+id/notificationIcon"
+            android:layout_width="46dp"
+            android:layout_height="45dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="Notification Icon"
+            android:focusable="true"
+            android:padding="8dp"
+            android:src="@drawable/bell"
+            app:tint="#F3F3E6" />
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
