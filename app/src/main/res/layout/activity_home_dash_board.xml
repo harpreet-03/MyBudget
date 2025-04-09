@@ -9,6 +9,7 @@
     tools:context=".HomeDashBoard">
 
     <TextView
+        android:id="@+id/UserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Harpreet Singh"
@@ -139,8 +140,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/transactionsRecyclerView"
-        android:layout_width="343dp"
-        android:layout_height="296dp"
+        android:layout_width="354dp"
+        android:layout_height="219dp"
         android:clipToPadding="false"
         android:overScrollMode="ifContentScrolls"
         android:padding="8dp"
@@ -150,7 +151,7 @@
         app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/transactionsTitle"
-        app:layout_constraintVertical_bias="0.118" >
+        app:layout_constraintVertical_bias="0.118">
 
     </androidx.recyclerview.widget.RecyclerView>
 

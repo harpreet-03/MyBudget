@@ -29,6 +29,7 @@
             android:layout_width="38dp"
             android:layout_height="33dp"
             android:contentDescription="Back"
+            android:clickable="true"
             android:src="@drawable/left"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +61,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="329dp"
+            android:layout_height="match_parent"
             android:padding="20dp">
 
             <!-- Category Label -->
@@ -82,9 +83,9 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
-                android:paddingStart="16dp"
                 android:background="@drawable/expense_editext"
                 android:hint="Enter category"
+                android:paddingStart="16dp"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -111,10 +112,10 @@
                 android:layout_width="0dp"
                 android:layout_height="47dp"
                 android:layout_marginTop="20dp"
-                android:paddingStart="16dp"
                 android:background="@drawable/expense_editext"
                 android:hint="₹"
                 android:inputType="numberDecimal"
+                android:paddingStart="16dp"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -122,12 +123,13 @@
 
             <Button
                 android:id="@+id/btnSave"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="294dp"
+                android:layout_height="58dp"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="#123051"
                 android:text="Save Expense"
                 android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"

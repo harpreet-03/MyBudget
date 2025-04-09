@@ -19,10 +19,13 @@ class ExpenseDatabaseHelper(context: Context) :
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        val createTable = ("CREATE TABLE $TABLE_NAME (" +
-                "$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "$COLUMN_CATEGORY TEXT, " +
-                "$COLUMN_AMOUNT INTEGER)")
+        val createTable = """
+            CREATE TABLE $TABLE_NAME (
+                $COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                $COLUMN_CATEGORY TEXT,
+                $COLUMN_AMOUNT INTEGER
+            )
+        """.trimIndent()
         db.execSQL(createTable)
     }
 
@@ -32,18 +35,19 @@ class ExpenseDatabaseHelper(context: Context) :
     }
 
     fun insertExpense(category: String, amount: Int) {
-        val db = this.writableDatabase
-        val values = ContentValues()
-        values.put(COLUMN_CATEGORY, category)
-        values.put(COLUMN_AMOUNT, amount)
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_CATEGORY, category)
+            put(COLUMN_AMOUNT, amount)
+        }
         db.insert(TABLE_NAME, null, values)
         db.close()
     }
 
     fun getAllExpenses(): List<Expense> {
         val expenses = mutableListOf<Expense>()
-        val db = this.readableDatabase
-        val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME ORDER BY $COLUMN_ID DESC", null)
         if (cursor.moveToFirst()) {
             do {
                 val category = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CATEGORY))
@@ -57,7 +61,7 @@ class ExpenseDatabaseHelper(context: Context) :
     }
 
     fun getTotalExpense(): Int {
-        val db = this.readableDatabase
+        val db = readableDatabase
         val cursor = db.rawQuery("SELECT SUM($COLUMN_AMOUNT) as total FROM $TABLE_NAME", null)
         var total = 0
         if (cursor.moveToFirst()) {
@@ -65,5 +69,23 @@ class ExpenseDatabaseHelper(context: Context) :
         }
         cursor.close()
         return total
+    }
+
+    fun deleteExpense(category: String, amount: Int): Boolean {
+        val db = writableDatabase
+        return db.delete(
+            TABLE_NAME,
+            "$COLUMN_CATEGORY = ? AND $COLUMN_AMOUNT = ?",
+            arrayOf(category, amount.toString())
+        ) > 0
+    }
+
+    fun addExpense(expense: Expense): Boolean {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_CATEGORY, expense.category)
+            put(COLUMN_AMOUNT, expense.amount)
+        }
+        return db.insert(TABLE_NAME, null, values) != -1L
     }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F3E6"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="354dp"
+        android:layout_height="315dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true" />
+
+    <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="271dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/enter_name"
+        android:gravity="center"
+        android:hint="Enter your Name"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+
+    <Button
+        android:id="@+id/btnGetStarted"
+        android:layout_width="255dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#113054"
+        android:paddingEnd="20dp"
+        android:text="Continue"
+        android:textAlignment="center"
+        android:textSize="15sp"/>
+</LinearLayout>

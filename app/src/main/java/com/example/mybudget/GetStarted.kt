@@ -16,7 +16,7 @@ class GetStarted : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.button)
         button.setOnClickListener {
-            val intent = Intent(this, HomeDashBoard::class.java)
+            val intent = Intent(this, EnterNameActivity::class.java)
             startActivity(intent)
             finish()
         }
