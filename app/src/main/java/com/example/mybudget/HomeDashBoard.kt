@@ -2,12 +2,14 @@ package com.example.mybudget
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeDashBoard : AppCompatActivity() {
 
@@ -27,8 +29,7 @@ class HomeDashBoard : AppCompatActivity() {
         setContentView(R.layout.activity_home_dash_board)
 
         val prefs = getSharedPreferences("user_prefs", MODE_PRIVATE)
-        val userName = prefs.getString("username", "User") // default fallback name
-
+        val userName = prefs.getString("username", "User")
         val nameTextView = findViewById<TextView>(R.id.UserName)
         nameTextView.text = userName
 
@@ -47,6 +48,23 @@ class HomeDashBoard : AppCompatActivity() {
         }
 
         loadExpenses()
+
+        // ✅ Bottom Navigation setup
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        bottomNavigation.selectedItemId = R.id.nav_home
+
+        bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> true // already here
+
+                R.id.nav_profile -> {
+                    startActivity(Intent(this, Profile::class.java))
+                    overridePendingTransition(0, 0)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     private fun loadExpenses() {
