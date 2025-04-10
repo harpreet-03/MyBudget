@@ -34,7 +34,7 @@
                 android:fontFamily="cursive"
                 android:text="Hello,"
                 android:textColor="#F3F3E6"
-                android:textSize="20sp" />
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/UserName"
@@ -85,7 +85,7 @@
                 android:padding="5dp"
                 android:text="Total Expense"
                 android:textColor="#113054"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -104,9 +104,9 @@
                 android:inputType="numberDecimal"
                 android:maxLines="1"
                 android:padding="12dp"
-                android:textColor="#113054"
+                android:textColor="#BF360C"
                 android:textColorHint="#888888"
-                android:textSize="25sp"
+                android:textSize="33sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -147,8 +147,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/transactionsRecyclerView"
-        android:layout_width="354dp"
-        android:layout_height="219dp"
+        android:layout_width="352dp"
+        android:layout_height="224dp"
         android:clipToPadding="false"
         android:overScrollMode="ifContentScrolls"
         android:padding="8dp"
@@ -163,12 +163,6 @@
     </androidx.recyclerview.widget.RecyclerView>
 
 
-    <!-- Floating Action Button -->
-
-    <!-- Bottom Navigation Bar -->
-
-    <!-- Bottom Navigation -->
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddExpense"
         android:layout_width="wrap_content"
@@ -177,7 +171,7 @@
         android:contentDescription="Add Expense"
         android:elevation="10dp"
         android:src="@drawable/ic_add"
-        app:backgroundTint="#FF9800"
+        app:backgroundTint="#BF360C"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -188,8 +182,8 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="79dp"
+        android:layout_width="407dp"
+        android:layout_height="69dp"
         android:background="@color/white"
         app:itemHorizontalTranslationEnabled="false"
         app:labelVisibilityMode="labeled"

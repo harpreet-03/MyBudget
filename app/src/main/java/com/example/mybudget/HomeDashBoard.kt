@@ -1,8 +1,11 @@
 package com.example.mybudget
 
 import android.content.Intent
+import android.icu.text.DisplayContext.LENGTH_SHORT
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,9 +31,10 @@ class HomeDashBoard : AppCompatActivity() {
 
         val prefs = getSharedPreferences("user_prefs", MODE_PRIVATE)
         val userName = prefs.getString("username", "User") // default fallback name
-
         val nameTextView = findViewById<TextView>(R.id.UserName)
         nameTextView.text = userName
+
+
 
         dbHelper = ExpenseDatabaseHelper(this)
         recyclerView = findViewById(R.id.transactionsRecyclerView)
