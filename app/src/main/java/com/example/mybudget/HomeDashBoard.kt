@@ -62,6 +62,12 @@ class HomeDashBoard : AppCompatActivity() {
                     overridePendingTransition(0, 0)
                     true
                 }
+                R.id.nav_stats -> {
+                    startActivity(Intent(this, Invoice::class.java))
+                    overridePendingTransition(0, 0)
+                    true
+
+                }
                 else -> false
             }
         }

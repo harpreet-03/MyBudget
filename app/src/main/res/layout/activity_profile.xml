@@ -22,7 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467" />
+        app:layout_constraintVertical_bias="0.605" />
 
     <ImageView
         android:id="@+id/notificationIcon"
@@ -40,7 +40,7 @@
         app:layout_constraintHorizontal_bias="0.868"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433"
+        app:layout_constraintVertical_bias="0.266"
         app:tint="#F3F3E6" />
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -61,7 +61,7 @@
         android:id="@+id/list"
         android:layout_width="357dp"
         android:layout_height="369dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -70,7 +70,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="407dp"
-        android:layout_height="69dp"
+        android:layout_height="50dp"
         android:background="@color/white"
         app:itemHorizontalTranslationEnabled="false"
         app:labelVisibilityMode="labeled"
