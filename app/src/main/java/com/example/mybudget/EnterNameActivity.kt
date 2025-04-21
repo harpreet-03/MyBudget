@@ -16,7 +16,7 @@ class EnterNameActivity : AppCompatActivity() {
         val animationView = findViewById<LottieAnimationView>(R.id.lottieAnimationView)
         val nameInput = findViewById<EditText>(R.id.nameInput)
 
-        animationView.setAnimation(R.raw.anime1)
+        animationView.setAnimation(R.raw.anime2)
         animationView.playAnimation()
 
         getStartedBtn.setOnClickListener {

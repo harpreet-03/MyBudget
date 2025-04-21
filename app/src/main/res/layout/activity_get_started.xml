@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3F3E6"
+    android:background="#FFFFFF"
     tools:context=".GetStarted">
 
     <ImageView
@@ -25,7 +25,7 @@
         android:layout_height="106dp"
         android:text="@string/spend_smarter_save_more"
         android:textAlignment="center"
-        android:textColor="#113054"
+        android:textColor="#122049"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +39,7 @@
         android:id="@+id/button"
         android:layout_width="255dp"
         android:layout_height="53dp"
-        android:backgroundTint="#113054"
+        android:backgroundTint="#122049"
         android:paddingEnd="20dp"
         android:text="@string/get_started"
         android:textAlignment="center"

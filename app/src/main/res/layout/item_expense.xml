@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Category"
-            android:textColor="#1A1A1A"
+            android:textColor="#122049"
             android:textSize="16sp"
             android:textStyle="bold" />
 

@@ -34,14 +34,15 @@ class ExpenseDatabaseHelper(context: Context) :
         onCreate(db)
     }
 
-    fun insertExpense(category: String, amount: Int) {
+    fun insertExpense(category: String, amount: Float): Boolean {
         val db = writableDatabase
         val values = ContentValues().apply {
             put(COLUMN_CATEGORY, category)
             put(COLUMN_AMOUNT, amount)
         }
-        db.insert(TABLE_NAME, null, values)
+        val result = db.insert(TABLE_NAME, null, values)
         db.close()
+        return result != -1L
     }
 
     fun getAllExpenses(): List<Expense> {

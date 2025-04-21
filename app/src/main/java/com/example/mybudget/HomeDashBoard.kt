@@ -1,7 +1,6 @@
 package com.example.mybudget
 
 import android.content.Intent
-import android.icu.text.DisplayContext.LENGTH_SHORT
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -51,11 +50,21 @@ class HomeDashBoard : AppCompatActivity() {
         }
 
         loadExpenses()
+
+
+        // notification click
+        val notify = findViewById<ImageView>(R.id.notificationIcon)
+        notify.setOnClickListener {
+            Toast.makeText(this, "No notification yet ✌🏻", Toast.LENGTH_SHORT).show()
+        }
+
     }
+
 
     private fun loadExpenses() {
         val expenses = dbHelper.getAllExpenses()
         val total = dbHelper.getTotalExpense()
+
         totalExpenseTextView.text = "₹$total"
         adapter.setData(expenses)
     }
