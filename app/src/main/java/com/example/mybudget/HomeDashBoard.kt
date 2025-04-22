@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
@@ -21,6 +22,8 @@ class HomeDashBoard : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        bottomNav.selectedItemId = R.id.nav_home
         loadExpenses()
     }
 
@@ -58,8 +61,30 @@ class HomeDashBoard : AppCompatActivity() {
             Toast.makeText(this, "No notification yet ✌🏻", Toast.LENGTH_SHORT).show()
         }
 
-    }
+        setupBottomNavigation()
 
+    }
+    private fun setupBottomNavigation() {
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        bottomNav.selectedItemId = R.id.nav_home // default selected
+
+        bottomNav.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> {
+
+                    true
+                }
+                R.id.nav_invoice -> {
+                    val intent = Intent(this, Invoice::class.java)
+                    startActivity(intent)
+                    true
+
+                }
+
+                else -> false
+            }
+        }
+    }
 
     private fun loadExpenses() {
         val expenses = dbHelper.getAllExpenses()

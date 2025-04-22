@@ -145,23 +145,23 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:layout_constraintVertical_bias="0.0" />
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/transactionsRecyclerView"
-        android:layout_width="350dp"
-        android:layout_height="240dp"
+        android:layout_width="346dp"
+        android:layout_height="232dp"
         android:clipToPadding="false"
         android:overScrollMode="ifContentScrolls"
         android:padding="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.439"
+        app:layout_constraintHorizontal_bias="0.435"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/transactionsTitle"
-        app:layout_constraintVertical_bias="0.118">
+        app:layout_constraintVertical_bias="0.065">
 
     </androidx.recyclerview.widget.RecyclerView>
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddExpense"

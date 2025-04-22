@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-04-10T07:24:10.991381Z">
+        <DropdownSelection timestamp="2025-04-22T05:18:31.774292Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=/Users/harpreetsingh/.android/avd/Pixel_9_API_Baklava.avd" />
+              <DeviceId pluginId="PhysicalDevice" identifier="serial=875fbbe4" />
             </handle>
           </Target>
         </DropdownSelection>
@@ -17,6 +17,9 @@
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="AddExpense">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="Invoice">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
