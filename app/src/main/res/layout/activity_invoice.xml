@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="20dp"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -14,25 +15,13 @@
         android:layout_height="312dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.382"
+        app:layout_constraintVertical_bias="0.415"
         app:lottie_autoPlay="true"
         app:lottie_fileName="invoice_motion.json"
         app:lottie_loop="true" />
-
-    <ImageView
-        android:id="@+id/left2"
-        android:layout_width="26dp"
-        android:layout_height="29dp"
-        android:src="@drawable/left2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.154" />
 
     <Button
         android:id="@+id/btnGenerateInvoice"
@@ -46,5 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.768" />
+        app:layout_constraintVertical_bias="0.795" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

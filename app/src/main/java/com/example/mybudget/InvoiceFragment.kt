@@ -1,21 +1,15 @@
 package com.example.mybudget
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.airbnb.lottie.LottieAnimationView
-import com.google.android.material.snackbar.Snackbar
 import com.itextpdf.text.Document
 import com.itextpdf.text.Paragraph
 import com.itextpdf.text.pdf.PdfPTable
@@ -34,25 +28,13 @@ class Invoice : AppCompatActivity() {
 
         dbHelper = ExpenseDatabaseHelper(this)
 
-        // Load Lottie Animation
         val animationView = findViewById<LottieAnimationView>(R.id.invoice)
         animationView.setAnimation(R.raw.invoice_motion)
         animationView.playAnimation()
 
-        // Back Button
-        val back = findViewById<ImageView>(R.id.left2)
-        back.setOnClickListener {
-            startActivity(Intent(this, HomeDashBoard::class.java))
-        }
-
-        // Generate PDF
         val generateBtn = findViewById<Button>(R.id.btnGenerateInvoice)
         generateBtn.setOnClickListener {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && !checkPermission()) {
-                requestPermission()
-            } else {
-                generatePDFAndOpen()
-            }
+            generatePDFAndOpen()
         }
     }
 
@@ -61,12 +43,12 @@ class Invoice : AppCompatActivity() {
         val document = Document()
 
         try {
+            // ✅ Safe internal folder: /storage/emulated/0/Android/data/<package>/files/Documents
             val dir = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
-            if (dir != null && !dir.exists()) {
-                dir.mkdirs()
-            }
+            if (dir != null && !dir.exists()) dir.mkdirs()
 
             pdfFile = File(dir, "ExpenseInvoice.pdf")
+
             PdfWriter.getInstance(document, FileOutputStream(pdfFile))
             document.open()
 
@@ -82,13 +64,13 @@ class Invoice : AppCompatActivity() {
             }
 
             document.add(table)
-            Toast.makeText(this, "PDF saved to: ${pdfFile.absolutePath}", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "📄 Invoice PDF downloaded successfully!", Toast.LENGTH_SHORT).show()
 
             openPDF()
 
         } catch (e: Exception) {
             e.printStackTrace()
-            Toast.makeText(this, "Failed to generate PDF!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "❌ Failed to generate PDF!", Toast.LENGTH_SHORT).show()
         } finally {
             document.close()
         }
@@ -110,36 +92,7 @@ class Invoice : AppCompatActivity() {
             startActivity(Intent.createChooser(intent, "Open PDF with"))
         } catch (e: Exception) {
             e.printStackTrace()
-            Toast.makeText(this, "No PDF viewer found.", Toast.LENGTH_LONG).show()
-        }
-    }
-
-    private fun checkPermission(): Boolean {
-        val permission = ContextCompat.checkSelfPermission(
-            this,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-        )
-        return permission == PackageManager.PERMISSION_GRANTED
-    }
-
-    private fun requestPermission() {
-        ActivityCompat.requestPermissions(
-            this,
-            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-            101
-        )
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 101 && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            generatePDFAndOpen()
-        } else {
-            Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "⚠️ No PDF viewer found!", Toast.LENGTH_LONG).show()
         }
     }
 }

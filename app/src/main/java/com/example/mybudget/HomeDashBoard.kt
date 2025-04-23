@@ -1,11 +1,13 @@
 package com.example.mybudget
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -36,8 +38,6 @@ class HomeDashBoard : AppCompatActivity() {
         val nameTextView = findViewById<TextView>(R.id.UserName)
         nameTextView.text = userName
 
-
-
         dbHelper = ExpenseDatabaseHelper(this)
         recyclerView = findViewById(R.id.transactionsRecyclerView)
         totalExpenseTextView = findViewById(R.id.expenseInput)
@@ -54,16 +54,14 @@ class HomeDashBoard : AppCompatActivity() {
 
         loadExpenses()
 
-
-        // notification click
         val notify = findViewById<ImageView>(R.id.notificationIcon)
         notify.setOnClickListener {
             Toast.makeText(this, "No notification yet ✌🏻", Toast.LENGTH_SHORT).show()
         }
 
         setupBottomNavigation()
-
     }
+
     private fun setupBottomNavigation() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
         bottomNav.selectedItemId = R.id.nav_home // default selected
@@ -71,19 +69,29 @@ class HomeDashBoard : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> {
-
+                    // Already on home, do nothing
                     true
                 }
                 R.id.nav_invoice -> {
                     val intent = Intent(this, Invoice::class.java)
                     startActivity(intent)
                     true
-
                 }
-
+                R.id.nav_profile -> {
+                    // TODO: Add Profile activity if needed
+                    Toast.makeText(this, "Profile coming soon!", Toast.LENGTH_SHORT).show()
+                    true
+                }
                 else -> false
             }
         }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container_view, fragment)
+            .addToBackStack(null)  // Add this to enable back navigation
+            .commit()
     }
 
     private fun loadExpenses() {
