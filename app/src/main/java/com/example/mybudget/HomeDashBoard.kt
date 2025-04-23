@@ -77,9 +77,14 @@ class HomeDashBoard : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
+                R.id.nav_stats -> {
+                    // TODO: Add Profile activity if needed
+                    Toast.makeText(this, "Stats Updating soon!", Toast.LENGTH_SHORT).show()
+                    true
+                }
                 R.id.nav_profile -> {
                     // TODO: Add Profile activity if needed
-                    Toast.makeText(this, "Profile coming soon!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Profile Updating soon!", Toast.LENGTH_SHORT).show()
                     true
                 }
                 else -> false
@@ -87,12 +92,7 @@ class HomeDashBoard : AppCompatActivity() {
         }
     }
 
-    private fun loadFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container_view, fragment)
-            .addToBackStack(null)  // Add this to enable back navigation
-            .commit()
-    }
+
 
     private fun loadExpenses() {
         val expenses = dbHelper.getAllExpenses()
