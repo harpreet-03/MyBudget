@@ -84,7 +84,8 @@ class HomeDashBoard : AppCompatActivity() {
                 }
                 R.id.nav_profile -> {
                     // TODO: Add Profile activity if needed
-                    Toast.makeText(this, "Profile Updating soon!", Toast.LENGTH_SHORT).show()
+                    val bottomSheet = ProfileBottomSheetFragment()
+                    bottomSheet.show(supportFragmentManager, bottomSheet.tag)
                     true
                 }
                 else -> false
