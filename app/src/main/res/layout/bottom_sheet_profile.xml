@@ -5,52 +5,96 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_sheet_bg"
-    android:layout_margin="10dp"
-    android:paddingTop="8dp"
-    android:paddingBottom="24dp"
+    android:layout_margin="16dp"
+    android:padding="16dp"
     android:clipToPadding="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingHorizontal="24dp"
-        android:gravity="center_horizontal">
+        android:padding="16dp">
 
-        <!-- Drag handle (hyphen) -->
-
+        <!-- Drag Handle -->
         <View
+            android:id="@+id/dragHandle"
             android:layout_width="40dp"
-            android:layout_height="4dp"
-            android:layout_gravity="center"
-            android:alpha="0.3"
+            android:layout_height="5dp"
             android:background="@drawable/drag_handle"
             android:backgroundTint="@android:color/darker_gray"
-            android:clipToOutline="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
+            android:alpha="0.5"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp" />
 
+        <!-- Profile Picture -->
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo"
+            android:background="@drawable/circle_bg"
+            android:clipToOutline="true"
+            app:layout_constraintTop_toBottomOf="@id/dragHandle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Name -->
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/nameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Profile"
-            android:padding="5dp"
-            android:textSize="22sp"
+            android:text="Harpreet Singh"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#132148"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/profileImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Email -->
+        <TextView
+            android:id="@+id/emailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="harpreet@example.com"
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/nameText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Bio inside CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/bioCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#DAE8F3"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@id/emailText">
 
+            <TextView
+                android:id="@+id/bioText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="24dp"
+                android:text="Software Developer | Tech Enthusiast  Lifelong Learner 🚀"
+                android:textAlignment="center"
+                android:textColor="#132148"
+                android:textSize="16sp" />
 
-
+        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>
