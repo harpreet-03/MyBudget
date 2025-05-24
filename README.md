@@ -82,18 +82,14 @@ MyBudget/
 The app requests permission to access your gallery to update the profile image:
 
 	•	READ_MEDIA_IMAGES (Android 13+)
- 
 	•	READ_EXTERNAL_STORAGE (pre-Android 13)
 
 
 🧠 Design Highlights
 
 	•	Material Design 3 compliance
- 
 	•	BottomNavigationView for intuitive navigation
- 
 	•	Use of CardViews, shadows, and custom background drawables
- 
 	•	Chips and spinners for smooth category selection
 
 
@@ -106,6 +102,7 @@ The app requests permission to access your gallery to update the profile image:
 
 
 🧾 Invoice Feature
+
 	•	Users can select a custom date range
 	•	Generates a PDF invoice of all expenses
 	•	Downloaded to device and can be shared
@@ -113,12 +110,14 @@ The app requests permission to access your gallery to update the profile image:
 
 
 👤 Profile Section
+
 	•	User name and email (editable via bottom sheet)
 	•	Tap profile picture to update from gallery
 	•	Stored locally using SharedPreferences
 
 
 🧩 Future Integrations (Roadmap)
+
 	•	🔗 Firebase Authentication (for user login)
 	•	☁️ Cloud sync of expenses
 	•	📅 Monthly / Weekly calendar expense view
@@ -132,6 +131,7 @@ The app requests permission to access your gallery to update the profile image:
 🤝 Contributing
 
 Pull requests are welcome! For major changes, please open an issue first to discuss the idea.
+
 	1.	Fork the repo
 	2.	Create a new branch (git checkout -b feature/feature-name)
 	3.	Commit changes (git commit -am 'Add new feature')
@@ -139,11 +139,8 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 	5.	Open a Pull Request
 
 
-📃 License
-
-This project is open source and available under the MIT License.
-
 🙌 Acknowledgements
+
 	•	PhilJay’s MPAndroidChart
 	•	Android Team & Material Components
 	•	Kotlin and Android Open Source Community
