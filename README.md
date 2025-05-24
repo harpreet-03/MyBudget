@@ -51,11 +51,13 @@ git clone https://github.com/harpreet-03/MyBudget.git
 cd MyBudget
 ```
 2. Open in Android Studio
+   
 	•	Open the project directory
 	•	Allow Gradle to sync dependencies
 	•	Run the app on emulator or physical device (API 21+)
 
-3. Add Required Permissions in AndroidManifest.xml
+4. Add Required Permissions in AndroidManifest.xml
+   
 ```<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />```
 
 📂 Project Structure
@@ -66,10 +68,15 @@ MyBudget/
 │   │   ├── HomeDashBoard.kt
 │   │   ├── AddExpense.kt
 │   │   ├── AnalyticsActivity.kt
-│   │   ├── Invoice.kt
+│   │   ├── InvoiceFragment.kt
+|   |   ├── SplashScreen.kt
+|   |   ├── ExpenseAdapter.kt
+|   |   ├── EnterNameActivity.kt
+|   |   ├── GetStarted.kt
+|   |   ├── Expense
 │   │   ├── ProfileActivity.kt
 │   │   ├── ProfileBottomSheetFragment.kt
-│   │   └── database/ExpenseDatabaseHelper.kt
+│   │   └── ExpenseDatabaseHelper.kt
 │   └── res/
 │       ├── layout/ (UI XMLs)
 │       ├── drawable/ (icons, backgrounds)
