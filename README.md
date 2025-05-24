@@ -80,18 +80,25 @@ MyBudget/
 🔐 Permissions
 
 The app requests permission to access your gallery to update the profile image:
+
 	•	READ_MEDIA_IMAGES (Android 13+)
+ 
 	•	READ_EXTERNAL_STORAGE (pre-Android 13)
 
 
 🧠 Design Highlights
+
 	•	Material Design 3 compliance
+ 
 	•	BottomNavigationView for intuitive navigation
+ 
 	•	Use of CardViews, shadows, and custom background drawables
+ 
 	•	Chips and spinners for smooth category selection
 
 
 📈 Analytics Module
+
 	•	Expense data grouped by category
 	•	Pie chart visualization (MPAndroidChart)
 	•	Total spend calculated dynamically from SQLite
