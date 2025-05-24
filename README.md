@@ -149,5 +149,5 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 🚀 <strong>Made with passion by Harpreet Singh</strong>
 
-<i>“Track your money like you track your goals – every rupee counts.”<\i> 💰📊📱
+<i>“Track your money like you track your goals – every rupee counts.”</i> 💰📊📱
 
