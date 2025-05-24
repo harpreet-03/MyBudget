@@ -2,10 +2,7 @@ package com.example.mybudget
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 class AddExpense : AppCompatActivity() {
@@ -14,25 +11,31 @@ class AddExpense : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_expense)
 
-        val etCategory = findViewById<EditText>(R.id.category)
+        val categorySpinner = findViewById<Spinner>(R.id.categorySpinner)
         val etAmount = findViewById<EditText>(R.id.amountInput)
         val btnSave = findViewById<Button>(R.id.btnSave)
         val leftIcon = findViewById<ImageView>(R.id.leftIcon)
 
+        // Go back to home screen
         leftIcon.setOnClickListener {
             val intent = Intent(this, HomeDashBoard::class.java)
             startActivity(intent)
-            finish() // Optional: close AddExpense so it doesn't stay in the backstack
+            finish()
         }
+
+        // Set up category options in the spinner
+        val categories = arrayOf("Food", "Travel", "Shopping", "Bills", "Entertainment", "Health", "Others")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories)
+        categorySpinner.adapter = adapter
 
         val dbHelper = ExpenseDatabaseHelper(this)
 
         btnSave.setOnClickListener {
-            val category = etCategory.text.toString().trim()
+            val category = categorySpinner.selectedItem.toString()
             val amountText = etAmount.text.toString().trim()
 
-            if (category.isEmpty() || amountText.isEmpty()) {
-                Toast.makeText(this, "Please enter both category and amount", Toast.LENGTH_SHORT).show()
+            if (amountText.isEmpty()) {
+                Toast.makeText(this, "Please enter an amount", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

@@ -2,9 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
-
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,9 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyBudget"
         tools:targetApi="31">
-
-        <activity android:name=".Invoice"
+        <activity
+            android:name=".AnalyticsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Invoice"
             android:exported="true" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -30,10 +31,10 @@
 
         <activity
             android:name=".EnterNameActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".AddExpense"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".HomeDashBoard"
             android:exported="true" />

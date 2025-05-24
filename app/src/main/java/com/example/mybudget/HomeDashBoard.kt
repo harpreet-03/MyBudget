@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -88,8 +89,8 @@ class HomeDashBoard : AppCompatActivity() {
                 }
 
                 R.id.nav_stats -> {
-                    // Show toast for Stats (upcoming feature)
-                    Toast.makeText(this, "Stats Updating soon!", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, AnalyticsActivity::class.java)
+                    startActivity(intent)
                     true
                 }
 

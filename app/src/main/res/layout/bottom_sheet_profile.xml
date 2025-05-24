@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/rounded_sheet_bg"
-    android:layout_margin="16dp"
+    android:layout_height="match_parent"
+    android:background="@color/glassBackground"
     android:padding="16dp"
     android:clipToPadding="false">
 
@@ -18,29 +16,37 @@
         <View
             android:id="@+id/dragHandle"
             android:layout_width="40dp"
-            android:layout_height="5dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/drag_handle"
             android:backgroundTint="@android:color/darker_gray"
-            android:alpha="0.5"
+            android:alpha="0.4"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Profile Picture -->
-        <ImageView
-            android:id="@+id/profileImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="24dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/logo"
-            android:background="@drawable/circle_bg"
-            android:clipToOutline="true"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profileCard"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="60dp"
+            app:cardPreventCornerOverlap="true"
             app:layout_constraintTop_toBottomOf="@id/dragHandle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp">
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/user"
+                android:background="@drawable/circle_bg"
+                android:clipToOutline="true" />
+        </androidx.cardview.widget.CardView>
 
         <!-- Name -->
         <TextView
@@ -48,11 +54,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Harpreet Singh"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="#132148"
+            android:textColor="#122049"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/profileImage"
+            app:layout_constraintTop_toBottomOf="@id/profileCard"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -62,38 +68,69 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="harpreet@example.com"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textColor="#666666"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintTop_toBottomOf="@id/nameText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Bio inside CardView -->
+        <!-- Bio Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/bioCard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:backgroundTint="#DAE8F3"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:backgroundTint="@color/glassBackground"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="10dp"
+            app:layout_constraintTop_toBottomOf="@id/emailText"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/emailText">
+            app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
                 android:id="@+id/bioText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="24dp"
-                android:text="Software Developer | Tech Enthusiast  Lifelong Learner 🚀"
+                android:text="Software Developer • Tech Enthusiast • Lifelong Learner 🚀"
                 android:textAlignment="center"
                 android:textColor="#132148"
                 android:textSize="16sp" />
-
         </androidx.cardview.widget.CardView>
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:id="@+id/actionButtons"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bioCard">
+
+            <!--            <Button-->
+            <!--                android:id="@+id/btnEditProfile"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginEnd="12dp"-->
+            <!--                android:text="Edit Profile"-->
+            <!--                android:backgroundTint="#122049"-->
+            <!--                android:textColor="@android:color/white"-->
+            <!--                android:padding="12dp" />-->
+
+            <Button
+                android:id="@+id/btnInvite"
+                android:layout_width="137dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#009688"
+                android:padding="12dp"
+                android:text="Invite Friends"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
