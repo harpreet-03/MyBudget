@@ -1,6 +1,9 @@
 # 💸 MyBudget – Android Expense Tracker App
 
-![MyBudget Banner](https://img.shields.io/badge/Budget-Tracker-blueviolet?style=for-the-badge&logo=android&logoColor=white)
+![Android](https://img.shields.io/badge/platform-Android-green?style=flat-square&logo=android)
+![Kotlin](https://img.shields.io/badge/code-Kotlin-orange?style=flat-square&logo=kotlin)
+![Build](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 
 **MyBudget** is a modern and visually appealing Android app designed to help users manage their daily expenses with ease. It enables tracking, analyzing, and managing personal finances on-the-go using beautiful charts and intuitive UI, built using Kotlin and SQLite.
 
@@ -80,7 +83,6 @@ The app requests permission to access your gallery to update the profile image:
 	•	READ_MEDIA_IMAGES (Android 13+)
 	•	READ_EXTERNAL_STORAGE (pre-Android 13)
 
-⸻
 
 🧠 Design Highlights
 	•	Material Design 3 compliance
@@ -88,7 +90,6 @@ The app requests permission to access your gallery to update the profile image:
 	•	Use of CardViews, shadows, and custom background drawables
 	•	Chips and spinners for smooth category selection
 
-⸻
 
 📈 Analytics Module
 	•	Expense data grouped by category
@@ -96,7 +97,6 @@ The app requests permission to access your gallery to update the profile image:
 	•	Total spend calculated dynamically from SQLite
 	•	Future: Bar chart, spending trends, monthly breakdown
 
-⸻
 
 🧾 Invoice Feature
 	•	Users can select a custom date range
@@ -104,14 +104,12 @@ The app requests permission to access your gallery to update the profile image:
 	•	Downloaded to device and can be shared
 	•	Future: Export via email or Google Drive
 
-⸻
 
 👤 Profile Section
 	•	User name and email (editable via bottom sheet)
 	•	Tap profile picture to update from gallery
 	•	Stored locally using SharedPreferences
 
-⸻
 
 🧩 Future Integrations (Roadmap)
 	•	🔗 Firebase Authentication (for user login)
@@ -123,7 +121,6 @@ The app requests permission to access your gallery to update the profile image:
 	•	🔔 Budget limit alerts
 	•	🔒 Fingerprint/Face Unlock for secure access
 
-⸻
 
 🤝 Contributing
 
@@ -134,22 +131,19 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 	4.	Push to the branch (git push origin feature-name)
 	5.	Open a Pull Request
 
-⸻
 
 📃 License
 
 This project is open source and available under the MIT License.
-
-⸻
 
 🙌 Acknowledgements
 	•	PhilJay’s MPAndroidChart
 	•	Android Team & Material Components
 	•	Kotlin and Android Open Source Community
 
-⸻
 
-🚀 Made with passion by Harpreet Singh
+
+🚀 <strong>Made with passion by Harpreet Singh</strong>
 
 <i>“Track your money like you track your goals – every rupee counts.”<\i> 💰📊📱
 
