@@ -12,7 +12,7 @@
 ## Live Demo 📱📸
 
 <p align="center">
-  <img src="assets/demo.gif" alt="MyBudget Demo" width="400"/>
+  <img src="assets/liveDemo.gif" alt="MyBudget Demo" width="400"/>
 </p>
 
 ---
