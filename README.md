@@ -9,6 +9,10 @@
 
 ---
 
+## Demo 📱📸
+![Demo](assets/demo.gif)
+
+
 ## 📱 Features
 
 | Feature | Description |
