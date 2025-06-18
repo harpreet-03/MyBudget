@@ -47,13 +47,6 @@
 
 ---
 
-## 📸 Screenshots
-
-| Home Dashboard | Add Expense | Analytics |
-|----------------|-------------|-----------|
-| ![Home](assets/home.png) | ![Add](assets/add.png) | ![Analytics](assets/chart.png) |
-
----
 
 ## 🚀 Getting Started
 
