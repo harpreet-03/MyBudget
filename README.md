@@ -9,9 +9,13 @@
 
 ---
 
-## Demo 📱📸
-![Demo](assets/demo.gif)
+## Live Demo 📱📸
 
+<p align="center">
+  <img src="assets/demo.gif" alt="MyBudget Demo" width="400"/>
+</p>
+
+---
 
 ## 📱 Features
 
