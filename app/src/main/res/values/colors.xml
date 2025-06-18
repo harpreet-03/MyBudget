@@ -4,4 +4,29 @@
     <color name="white">#FFFFFFFF</color>
     <color name="lightBackground">#FAFAFA</color>
     <color name="glassBackground">#F1F5FB</color>
+    <color name="bg_gradient">#F4F7FF</color>
+    <color name="header_gradient">#667EEA</color> <!-- vibrant purple-blue -->
+    <color name="colorPrimaryDark">#2B2D42</color>
+    <color name="colorAccent">#FF6F61</color> <!-- energetic coral pink -->
+    <color name="glass_white">#F9F9F9</color>
+    <color name="text_dark">#1E1E1E</color>
+    <color name="dark_gray">#757575</color>
+
+
+    <color name="home_active">#2196F3</color>
+    <color name="home_inactive">#B0BEC5</color>
+    <color name="home_active_bg">#BBDEFB</color>
+
+    <color name="invoice_active">#4CAF50</color>
+    <color name="invoice_inactive">#B0BEC5</color>
+    <color name="invoice_active_bg">#C8E6C9</color>
+
+    <color name="budget_active">#FF9800</color>
+    <color name="budget_inactive">#B0BEC5</color>
+    <color name="budget_active_bg">#FFE0B2</color>
+
+    <color name="profile_active">#9C27B0</color>
+    <color name="profile_inactive">#B0BEC5</color>
+    <color name="profile_active_bg">#E1BEE7</color>
+
 </resources>

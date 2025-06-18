@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.lottie)
+    implementation(libs.lottie) // This uses the version from libs.versions.toml
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -50,8 +50,10 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.itextpdf:itextg:5.5.10")
-    implementation("com.airbnb.android:lottie:6.1.0")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
-    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation ("com.airbnb.android:lottie:6.1.0")
+//    implementation ("com.google.android.gms:play-services-mlkit-entity-extraction:16.1.1")
+
+
 
 }

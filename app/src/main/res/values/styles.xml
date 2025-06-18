@@ -1,0 +1,35 @@
+<resources>
+    <!-- SF Pro Regular Font Styles -->
+    <style name="SFTextSmall">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#122049</item>
+        <item name="android:fontFamily">@font/sf_pro_regular</item>
+    </style>
+
+    <style name="SFTextMedium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#122049</item>
+        <item name="android:fontFamily">@font/sf_pro_regular</item>
+    </style>
+
+    <style name="SFTextLarge">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">#122049</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/sf_pro_regular</item>
+    </style>
+
+    <!-- SF Pro Rounded Black for headers -->
+    <style name="SFTextHeader">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">#F3F3E6</item>
+        <item name="android:fontFamily">@font/sf_pro_rounded_black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SFTextSubHeader">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#F3F3E6</item>
+        <item name="android:fontFamily">@font/sf_pro_regular</item>
+    </style>
+</resources>

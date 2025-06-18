@@ -26,7 +26,7 @@
         android:text="@string/spend_smarter_save_more"
         android:textAlignment="center"
         android:textColor="#122049"
-        android:textSize="30sp"
+        style="@style/SFTextHeader"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

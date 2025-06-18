@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Internal padding inside each toggle item -->
+    <dimen name="internal_padding">8dp</dimen>
+
+    <!-- Padding around toggle title text -->
+    <dimen name="title_padding">4dp</dimen>
+
+    <!-- Optional: icon sizes -->
+    <dimen name="icon_size">24dp</dimen>
+</resources>

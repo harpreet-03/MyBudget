@@ -9,10 +9,24 @@ class ExpenseAdapter(
     private val onDeleteRequested: (Expense) -> Unit
 ) : RecyclerView.Adapter<ExpenseAdapter.ExpenseViewHolder>() {
 
-    private var expenses: List<Expense> = listOf()
+    private var expenses: MutableList<Expense> = mutableListOf()
+    private var originalExpenses: List<Expense> = listOf()
 
     fun setData(newExpenses: List<Expense>) {
-        expenses = newExpenses
+        originalExpenses = newExpenses
+        expenses = newExpenses.toMutableList()
+        notifyDataSetChanged()
+    }
+
+    fun filter(query: String) {
+        expenses = if (query.isEmpty()) {
+            originalExpenses.toMutableList()
+        } else {
+            originalExpenses.filter {
+                it.category.contains(query, ignoreCase = true) ||
+                        it.amount.toString().contains(query)
+            }.toMutableList()
+        }
         notifyDataSetChanged()
     }
 
@@ -27,7 +41,6 @@ class ExpenseAdapter(
         holder.tvCategory.text = expense.category
         holder.tvAmount.text = "₹${expense.amount}"
 
-        // Long-press menu with delete option
         holder.itemView.setOnLongClickListener {
             showPopupMenu(holder.itemView, expense)
             true
