@@ -180,15 +180,16 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/transactionRecyclerView"
-        android:layout_width="407dp"
-        android:layout_height="316dp"
+        android:layout_width="405dp"
+        android:layout_height="280dp"
         android:padding="8dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@id/voiceInputBtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/budgetCard"
-        app:layout_constraintVertical_bias="0.555" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/micAnimation"
