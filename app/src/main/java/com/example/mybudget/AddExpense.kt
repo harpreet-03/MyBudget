@@ -7,11 +7,17 @@ import androidx.appcompat.app.AppCompatActivity
 
 class AddExpense : AppCompatActivity() {
 
+    private lateinit var categorySpinner: Spinner
+    private lateinit var customCategoryText: TextView
+    private lateinit var adapter: ArrayAdapter<String>
+    private val categoryList = arrayListOf("Food", "Travel", "Shopping", "Bills", "Entertainment", "Health", "Grocery", "Education", "Others")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_expense)
 
-        val categorySpinner = findViewById<Spinner>(R.id.categorySpinner)
+        categorySpinner = findViewById(R.id.categorySpinner)
+        customCategoryText = findViewById(R.id.customCategoryText)
         val etAmount = findViewById<EditText>(R.id.amountInput)
         val btnSave = findViewById<Button>(R.id.btnSave)
         val leftIcon = findViewById<ImageView>(R.id.leftIcon)
@@ -23,10 +29,12 @@ class AddExpense : AppCompatActivity() {
             finish()
         }
 
-        // Set up category options in the spinner
-        val categories = arrayOf("Food", "Travel", "Shopping", "Bills", "Entertainment", "Health", "Grocery", "Education", "Others")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories)
+        adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categoryList)
         categorySpinner.adapter = adapter
+
+        customCategoryText.setOnClickListener {
+            showCustomCategoryDialog()
+        }
 
         val dbHelper = ExpenseDatabaseHelper(this)
 
@@ -53,5 +61,30 @@ class AddExpense : AppCompatActivity() {
                 Toast.makeText(this, "Failed to add expense", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun showCustomCategoryDialog() {
+        val builder = androidx.appcompat.app.AlertDialog.Builder(this)
+        builder.setTitle("Add Custom Category")
+
+        val input = EditText(this)
+        input.hint = "Enter category"
+        builder.setView(input)
+
+        builder.setPositiveButton("Add") { dialog, _ ->
+            val newCategory = input.text.toString().trim()
+            if (newCategory.isNotEmpty()) {
+                categoryList.add(newCategory)
+                adapter.notifyDataSetChanged()
+                categorySpinner.setSelection(categoryList.size - 1)
+            }
+            dialog.dismiss()
+        }
+
+        builder.setNegativeButton("Cancel") { dialog, _ ->
+            dialog.cancel()
+        }
+
+        builder.show()
     }
 }
